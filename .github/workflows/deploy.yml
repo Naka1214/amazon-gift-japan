@@ -1,0 +1,32 @@
+name: Deploy to Firebase Hosting
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Tenta buildar; se não houver build, garante uma pasta dist/
+      - run: |
+          npm ci || npm i
+          if [ -f package.json ] && grep -q "\"build\":" package.json; then
+            npm run build
+          else
+            mkdir -p dist
+          fi
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_gift_16201 }}
+          channelId: live
+          projectId: gift-16201
