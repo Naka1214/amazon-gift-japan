@@ -48,15 +48,15 @@ footer a { color:#ff9900; text-decoration:none; margin:0 8px; }
 <div class="form-group">
 <label for="category">カテゴリ</label>
 <select id="category">
-<option value="">選択してください</option>
-<option value="食品・飲料">食品・飲料</option>
-<option value="家電・カメラ">家電・カメラ</option>
-<option value="本・漬画">本・漬画</option>
-<option value="ゲーム">ゲーム</option>
-<option value="ファッション">ファッション</option>
-<option value="ベビー・おもちゃ">ベビー・おもちゃ</option>
-</select>
-</div>
+          <option value="">選択してください</option>
+          <option value="食品・飲料">食品・飲料</option>
+          <option value="家電・カメラ">家電・カメラ</option>
+          <option value="本・漬画">本・漬画</option>
+          <option value="ゲーム">ゲーム</option>
+          <option value="ファッション">ファッション</option>
+          <option value="ベビー・おもちゃ">ベビー・おもちゃ</option>
+        </select> </select>       
+        
 <div class="form-group">
 <label for="device">デバイス</label>
 <select id="device">
@@ -129,7 +129,11 @@ function getAppUrl() {
 function showPage(pageId) {
   document.querySelectorAll(".page").forEach(el => el.style.display = "none");
   document.getElementById(pageId).style.display = "block";
-}
+ 
+
+document.addEventListener('DOMContentLoaded', () => {
+  showPage('home');
+});}
 document.getElementById("goto-signup").addEventListener("click", () => {
   showPage("signup");
 });
