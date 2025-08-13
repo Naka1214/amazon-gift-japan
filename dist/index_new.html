@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Amazonギフトカードキャンペーン</title>
+<style>
+:root{
+  --navy: #232f3e;
+  --orange: #ff9900;
+  --line: #e5e7eb;
+  --bg: #f2f2f2;
+  --text: #111827;
+  --muted: #6b7280;
+}
+body{
+  margin:0;
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+a{text-decoration:none;color:inherit;}
+.shell{
+  max-width:480px;
+  margin:0 auto;
+  padding:16px;
+}
+.promo-card{
+  display:flex;
+  flex-direction:column;
+  border-radius:24px;
+  border:1px solid var(--line);
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  background:#fff;
+  overflow:hidden;
+}
+.promo-head,.promo-foot{
+  background:var(--navy);
+  color:#fff;
+  text-align:center;
+  padding:16px 0;
+  font-weight:800;
+  font-size:20px;
+}
+.promo-body{
+  padding:24px 20px;
+}
+.promo-title{
+  font-size:24px;
+  font-weight:800;
+  line-height:1.3;
+  margin:0 0 12px;
+}
+.promo-sub{
+  font-size:14px;
+  margin:0 0 16px;
+  color:var(--muted);
+}
+.promo-btn{
+  display:inline-block;
+  width:100%;
+  padding:12px 16px;
+  border-radius:999px;
+  background:var(--navy);
+  color:#fff;
+  text-align:center;
+  font-weight:700;
+  margin-bottom:16px;
+}
+.promo-cards{
+  display:flex;
+  gap:12px;
+  transform:rotate(-6deg) translateY(8px);
+  justify-content:flex-end;
+}
+.gift{
+  width:120px;
+  height:80px;
+  border-radius:12px;
+  background:#fff;
+  border:1px solid var(--line);
+  box-shadow:0 4px 12px rgba(0,0,0,.05);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+.gift .logo{
+  color:var(--orange);
+  font-size:20px;
+  font-weight:800;
+}
+.gift .sub{
+  font-size:10px;
+  color:var(--muted);
+}
+.promo-safe{
+  border-top:1px solid var(--line);
+  background:#fafafa;
+  padding:12px 20px;
+}
+.promo-safe .seal{
+  font-weight:800;
+  font-size:14px;
+  margin-bottom:8px;
+}
+.promo-safe .points{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.promo-safe .points span{
+  font-size:11px;
+  color:var(--text);
+  padding:6px 10px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:#fff;
+}
+.note{
+  font-size:11px;
+  color:var(--muted);
+  margin-top:12px;
+  line-height:1.4;
+}
+</style>
+</head>
+<body>
+<main class="shell">
+  <section class="promo-card">
+    <div class="promo-head">amazon</div>
+    <div class="promo-body">
+      <h1 class="promo-title">ギフトカードを<br/>獲得するチャンス</h1>
+      <p class="promo-sub">無料・1分で応募。手順に従って登録するだけ。</p>
+      <a class="promo-btn" href="signup.html">応募したい</a>
+      <div class="promo-cards" aria-hidden="true">
+        <div class="gift"><div class="logo">Gift</div><div class="sub">Amazon Card</div></div>
+        <div class="gift" style="transform:translateY(10px);"><div class="logo">Gift</div><div class="sub">Amazon Card</div></div>
+      </div>
+    </div>
+    <div class="promo-safe">
+      <div class="seal">安心・安全</div>
+      <div class="points">
+        <span>TLS暗号化</span>
+        <span>本人確認メール</span>
+        <span>いつでも退会</span>
+      </div>
+      <p class="note">※ お客様の情報は厳重に管理され、抽選の運営にのみ使用します。</p>
+    </div>
+    <div class="promo-foot">amazon</div>
+  </section>
+</main>
+</body>
+</html>
