@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Amazonギフト日本 – ギフトカードを獲得するチャンス</title>
+  <style>
+    /* Base variables */
+    :root {
+      --navy: #232f3e;
+      --orange: #ff9900;
+      --ink: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --bg: #ffffff;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      -webkit-text-size-adjust: 100%;
+    }
+    * { box-sizing: border-box; }
+    a, button { font-family: inherit; }
+    :focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
+
+    /* Layout containers */
+    .shell {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 0 12px;
+    }
+    .pt-safe { padding-top: calc(env(safe-area-inset-top, 0px) + 8px); }
+    .pb-safe { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 8px); }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--navy);
+      color: #fff;
+    }
+    header .wrap {
+      max-width: 480px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+    }
+    .brand .t1 {
+      font-weight: 900;
+      letter-spacing: 0.2px;
+    }
+    .brand .t2 {
+      font-size: 11px;
+      color: var(--orange);
+    }
+    nav {
+      margin-left: auto;
+      display: flex;
+      gap: 14px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      opacity: 0.9;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+      cursor: pointer;
+    }
+    nav a.active {
+      opacity: 1;
+      border-color: var(--orange);
+    }
+
+    /* Promo card styling */
+    .promo-card {
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 34px rgba(0, 0, 0, 0.06);
+      background: #fff;
+      overflow: hidden;
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+    .promo-head, .promo-foot {
+      background: var(--navy);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px 0;
+    }
+    .promo-logo {
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: 0.1px;
+    }
+    .promo-body {
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .promo-title {
+      font-size: 24px;
+      font-weight: 800;
+      margin: 0 0 8px;
+      line-height: 1.4;
+    }
+    .promo-sub {
+      font-size: 14px;
+      color: #374151;
+      margin: 0 0 8px;
+    }
+    /* Instruction line explaining what to do */
+    .promo-instr {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0 0 12px;
+    }
+    .promo-btn {
+      margin-top: 8px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: var(--navy);
+      color: #fff;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .promo-btn:active { transform: translateY(1px); }
+    .promo-cards {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+      transform: rotate(-5deg) translateY(16px);
+      align-self: flex-end;
+    }
+    .gift {
+      width: 140px;
+      height: 94px;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .gift .logo {
+      font-weight: 900;
+      color: var(--orange);
+      font-size: 22px;
+    }
+    .gift .sub {
+      font-size: 11px;
+      color: #374151;
+    }
+    .promo-safe {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      border-top: 1px solid var(--line);
+      padding: 12px 16px;
+      background: #fafafa;
+    }
+    .promo-safe .seal {
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .promo-safe .points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .promo-safe .points span {
+      font-size: 11px;
+      color: #374151;
+      padding: 6px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+    }
+
+    /* Sections below promo card */
+    .section {
+      margin-top: 24px;
+    }
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .steps .step {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      background: #fff;
+      text-align: center;
+    }
+    .steps .n {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .steps .t {
+      font-weight: 700;
+      margin-top: 4px;
+      font-size: 14px;
+    }
+    /* Categories grid */
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(92px, 1fr));
+      gap: 8px;
+    }
+    .chip {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      font-size: 12px;
+    }
+    /* Bottom CTA */
+    .cta-bottom {
+      position: fixed;
+      left: 50%;
+      bottom: 12px;
+      transform: translateX(-50%);
+      width: calc(100% - 24px);
+      max-width: 480px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      padding: 10px 12px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      z-index: 10;
+    }
+    .cta-bottom .text {
+      font-size: 12px;
+      color: #374151;
+      flex: 1;
+    }
+    .cta-bottom .btn {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--navy);
+      color: #fff;
+      border: 0;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    body.has-cta-bottom { padding-bottom: 84px; }
+
+    /* Footer */
+    footer {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 24px 12px 72px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    footer .links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 10px;
+    }
+    footer .links a {
+      color: var(--ink);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* Small phones adjustments */
+    @media (max-width: 340px) {
+      .promo-body { padding: 20px 12px; }
+      .promo-cards { transform: rotate(-5deg) translateY(12px); }
+      .gift { width: 120px; height: 82px; }
+    }
+  </style>
+</head>
+<body class="pt-safe">
+  <header>
+    <div class="wrap">
+      <span style="font-size:22px">🛒</span>
+      <div class="brand">
+        <div class="t1">amazon</div>
+        <div class="t2">gift japan</div>
+      </div>
+      <nav>
+        <a id="navHome" class="active">ホーム</a>
+        <a id="navSignup">応募</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell" id="home">
+    <!-- Promo Card -->
+    <section class="promo-card" aria-label="キャンペーンバナー">
+      <div class="promo-head">
+        <div class="promo-logo">amazon</div>
+      </div>
+      <div class="promo-body">
+        <h1 class="promo-title">ギフトカードを<br/>獲得するチャンス</h1>
+        <p class="promo-sub">無料・1分で応募。手順に従って登録するだけ。</p>
+        <!-- Instructional explanation below subtext -->
+        <p class="promo-instr">📧 メールまたは 🔗 Google で登録し、確認リンクをクリックするだけで抽選に参加できます。TLS暗号化で安全にデータを取り扱います。</p>
+        <a class="promo-btn" id="btnSignup" role="button">応募したい</a>
+        <div class="promo-cards" aria-hidden="true">
+          <div class="gift"><div class="logo">Gift</div><div class="sub">Amazon&nbsp;Card</div></div>
+          <div class="gift" style="transform:translateY(10px)"><div class="logo">Gift</div><div class="sub">Amazon&nbsp;Card</div></div>
+        </div>
+      </div>
+      <div class="promo-safe">
+        <div class="seal">安心・安全</div>
+        <div class="points">
+          <span>TLS暗号化</span>
+          <span>本人確認メール</span>
+          <span>いつでも退会</span>
+        </div>
+      </div>
+      <div class="promo-foot">
+        <div class="promo-logo">amazon</div>
+      </div>
+    </section>
+
+    <!-- How to apply steps -->
+    <section class="section">
+      <div class="section-title">かんたん3ステップで応募</div>
+      <div class="steps">
+        <div class="step"><div class="n">ステップ1</div><div class="t">メール/Googleで登録</div></div>
+        <div class="step"><div class="n">ステップ2</div><div class="t">確認リンクをクリック</div></div>
+        <div class="step"><div class="n">ステップ3</div><div class="t">抽選に参加</div></div>
+      </div>
+    </section>
+
+    <!-- Popular categories -->
+    <section class="section">
+      <div class="section-title">人気カテゴリー</div>
+      <div class="categories" id="categoriesContainer"></div>
+    </section>
+  </main>
+
+  <!-- Floating CTA -->
+  <div class="cta-bottom pb-safe" id="ctaBottom">
+    <div class="text">今すぐ応募して当選チャンスをゲット</div>
+    <button class="btn" id="btnSignupFloating">応募する</button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="links">
+      <a id="linkTerms">利用規約</a>
+      <a id="linkPrivacy">プライバシーポリシー</a>
+      <a id="linkContact">お問い合わせ</a>
+    </div>
+    <div style="margin-top:10px;font-size:12px;color:#9ca3af">© <span id="currentYear"></span> Amazon Gift Japan</div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Utility: set current year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Populate categories
+    (function() {
+      const categories = [
+        { name: '本・雑誌', icon: '📚' },
+        { name: '家電', icon: '🔌' },
+        { name: 'ファッション', icon: '👗' },
+        { name: '食品・飲料', icon: '🍜' },
+        { name: 'ビューティー', icon: '💄' },
+        { name: 'スポーツ', icon: '🏃' },
+        { name: 'おもちゃ', icon: '🧸' },
+        { name: 'ペット', icon: '🐾' },
+        { name: '車・バイク', icon: '🚗' },
+        { name: 'DIY', icon: '🛠️' },
+        { name: 'パソコン', icon: '💻' },
+        { name: 'スマホ', icon: '📱' }
+      ];
+      const container = document.getElementById('categoriesContainer');
+      categories.forEach(cat => {
+        const div = document.createElement('div');
+        div.className = 'chip';
+        div.innerHTML = `<div style="font-size:22px">${cat.icon}</div><div>${cat.name}</div>`;
+        container.appendChild(div);
+      });
+    })();
+
+    // Manage bottom padding for floating CTA
+    document.body.classList.add('has-cta-bottom');
+
+    // Click handlers for navigation
+    document.getElementById('navHome').addEventListener('click', () => {
+      // remain on home page for now
+    });
+    document.getElementById('navSignup').addEventListener('click', () => {
+      // Navigate to signup page
+      window.location.href = 'signup.html';
+    });
+    document.getElementById('btnSignup').addEventListener('click', () => {
+      window.location.href = 'signup.html';
+    });
+    document.getElementById('btnSignupFloating').addEventListener('click', () => {
+      window.location.href = 'signup.html';
+    });
+  </script>
+</body>
+</html>
